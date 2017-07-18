@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
     private static final char MULTIPLICATION = '*';
     private static final char DIVISION = '/';
 
-    private char CURRENT_ACTION;
+    private char CURRENT_ACTION = '0';
     private DecimalFormat decimalFormat;
 
     private void computeCalculation() {
@@ -51,6 +51,11 @@ public class MainActivity extends AppCompatActivity {
         binding.buttonZero.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (CURRENT_ACTION == '0'){
+                    binding.infoTextView.setText(null);
+                    CURRENT_ACTION = '1';
+                }
+                binding.infoTextView.setText(binding.infoTextView.getText().toString() + "0");
                 binding.editText.setText(binding.editText.getText() + "0");
             }
         });
@@ -58,6 +63,11 @@ public class MainActivity extends AppCompatActivity {
         binding.buttonOne.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (CURRENT_ACTION == '0'){
+                    binding.infoTextView.setText(null);
+                    CURRENT_ACTION = '1';
+                }
+                binding.infoTextView.setText(binding.infoTextView.getText().toString() + "1");
                 binding.editText.setText(binding.editText.getText() + "1");
             }
         });
@@ -65,6 +75,11 @@ public class MainActivity extends AppCompatActivity {
         binding.buttonTwo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (CURRENT_ACTION == '0'){
+                    binding.infoTextView.setText(null);
+                    CURRENT_ACTION = '1';
+                }
+                binding.infoTextView.setText(binding.infoTextView.getText().toString() + "2");
                 binding.editText.setText(binding.editText.getText() + "2");
             }
         });
@@ -72,6 +87,11 @@ public class MainActivity extends AppCompatActivity {
         binding.buttonThree.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (CURRENT_ACTION == '0'){
+                    binding.infoTextView.setText(null);
+                    CURRENT_ACTION = '1';
+                }
+                binding.infoTextView.setText(binding.infoTextView.getText().toString() + "3");
                 binding.editText.setText(binding.editText.getText() + "3");
             }
         });
@@ -79,6 +99,11 @@ public class MainActivity extends AppCompatActivity {
         binding.buttonFour.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (CURRENT_ACTION == '0'){
+                    binding.infoTextView.setText(null);
+                    CURRENT_ACTION = '1';
+                }
+                binding.infoTextView.setText(binding.infoTextView.getText().toString() + "4");
                 binding.editText.setText(binding.editText.getText() + "4");
             }
         });
@@ -86,6 +111,11 @@ public class MainActivity extends AppCompatActivity {
         binding.buttonFive.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (CURRENT_ACTION == '0'){
+                    binding.infoTextView.setText(null);
+                    CURRENT_ACTION = '1';
+                }
+                binding.infoTextView.setText(binding.infoTextView.getText().toString() + "5");
                 binding.editText.setText(binding.editText.getText() + "5");
             }
         });
@@ -93,6 +123,11 @@ public class MainActivity extends AppCompatActivity {
         binding.buttonSix.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (CURRENT_ACTION == '0'){
+                    binding.infoTextView.setText(null);
+                    CURRENT_ACTION = '1';
+                }
+                binding.infoTextView.setText(binding.infoTextView.getText().toString() + "6");
                 binding.editText.setText(binding.editText.getText() + "6");
             }
         });
@@ -100,6 +135,11 @@ public class MainActivity extends AppCompatActivity {
         binding.buttonSeven.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (CURRENT_ACTION == '0'){
+                    binding.infoTextView.setText(null);
+                    CURRENT_ACTION = '1';
+                }
+                binding.infoTextView.setText(binding.infoTextView.getText().toString() + "7");
                 binding.editText.setText(binding.editText.getText() + "7");
             }
         });
@@ -107,6 +147,11 @@ public class MainActivity extends AppCompatActivity {
         binding.buttonEight.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (CURRENT_ACTION == '0'){
+                    binding.infoTextView.setText(null);
+                    CURRENT_ACTION = '1';
+                }
+                binding.infoTextView.setText(binding.infoTextView.getText().toString() + "8");
                 binding.editText.setText(binding.editText.getText() + "8");
             }
         });
@@ -114,6 +159,11 @@ public class MainActivity extends AppCompatActivity {
         binding.buttonNine.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (CURRENT_ACTION == '0'){
+                    binding.infoTextView.setText(null);
+                    CURRENT_ACTION = '1';
+                }
+                binding.infoTextView.setText(binding.infoTextView.getText().toString() + "9");
                 binding.editText.setText(binding.editText.getText() + "9");
             }
         });
@@ -163,9 +213,17 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 computeCalculation();
                 binding.infoTextView.setText(binding.infoTextView.getText().toString() +
-                        decimalFormat.format(valueTwo) + " = " + decimalFormat.format(valueOne));
+                        " = " + decimalFormat.format(valueOne));
                 valueOne = Double.NaN;
                 CURRENT_ACTION = '0';
+            }
+        });
+
+        binding.buttonClear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                binding.infoTextView.setText(null);
+                binding.editText.setText(null);
             }
         });
 

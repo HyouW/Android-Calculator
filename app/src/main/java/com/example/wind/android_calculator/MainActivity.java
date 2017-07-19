@@ -216,6 +216,7 @@ public class MainActivity extends AppCompatActivity {
                         " = " + decimalFormat.format(valueOne));
                 valueOne = Double.NaN;
                 CURRENT_ACTION = '0';
+                binding.editText.setText(null);
             }
         });
 
@@ -224,6 +225,14 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 binding.infoTextView.setText(null);
                 binding.editText.setText(null);
+            }
+        });
+
+        binding.buttonDot.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                binding.infoTextView.setText(binding.infoTextView.getText().toString() + ".");
+                binding.editText.setText(binding.editText.getText() + ".");
             }
         });
 

@@ -17,13 +17,18 @@ public class MainActivity extends AppCompatActivity {
     private static final char SUBTRACTION = '-';
     private static final char MULTIPLICATION = '*';
     private static final char DIVISION = '/';
+    private static final char SIN = 's';
+    private static final char COS = 'c';
+    private static final char TAN = 't';
+
 
     private char CURRENT_ACTION = '0';
     private DecimalFormat decimalFormat;
 
     private void computeCalculation() {
         if(!Double.isNaN(valueOne)) {
-            valueTwo = Double.parseDouble(binding.editText.getText().toString());
+            if (CURRENT_ACTION != SIN && CURRENT_ACTION != COS && CURRENT_ACTION != TAN)
+                valueTwo = Double.parseDouble(binding.editText.getText().toString());
             binding.editText.setText(null);
 
             if(CURRENT_ACTION == ADDITION)
@@ -34,6 +39,12 @@ public class MainActivity extends AppCompatActivity {
                 valueOne = this.valueOne * valueTwo;
             else if(CURRENT_ACTION == DIVISION)
                 valueOne = this.valueOne / valueTwo;
+            else if(CURRENT_ACTION == SIN)
+                valueOne = Math.sin(Math.toRadians(this.valueOne));
+            else if(CURRENT_ACTION == COS)
+                valueOne = Math.cos(Math.toRadians(this.valueOne));
+            else if(CURRENT_ACTION == TAN)
+                valueOne = Math.tan(Math.toRadians(this.valueOne));
         }
         else {
             try {
@@ -235,6 +246,37 @@ public class MainActivity extends AppCompatActivity {
                 binding.editText.setText(binding.editText.getText() + ".");
             }
         });
+
+        binding.buttonSIN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                CURRENT_ACTION = SIN;
+                computeCalculation();
+                binding.infoTextView.setText("sin" + decimalFormat.format(valueOne));
+                binding.editText.setText(null);
+            }
+        });
+
+        binding.buttonCOS.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                computeCalculation();
+                CURRENT_ACTION = COS;
+                binding.infoTextView.setText("cos" + decimalFormat.format(valueOne));
+                binding.editText.setText(null);
+            }
+        });
+
+        binding.buttonTAN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                computeCalculation();
+                CURRENT_ACTION = TAN;
+                binding.infoTextView.setText("tan" + decimalFormat.format(valueOne));
+                binding.editText.setText(null);
+            }
+        });
+
 
         decimalFormat = new DecimalFormat("#.##########");
     }

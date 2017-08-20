@@ -228,5 +228,42 @@
             tools:layout_editor_absoluteY="345dp"
             tools:layout_editor_absoluteX="239dp" />
 
+        <Button
+            android:id="@+id/buttonSIN"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignRight="@id/buttonDot"
+            android:layout_below="@id/buttonDot"
+            android:text="sin"
+            android:textSize="20sp"
+            tools:layout_editor_absoluteY="345dp"
+            tools:layout_editor_absoluteX="239dp" />
+
+        <Button
+            android:id="@+id/buttonCOS"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignRight="@id/buttonZero"
+            android:layout_below="@id/buttonZero"
+            android:text="cos"
+            android:textSize="20sp"
+            tools:layout_editor_absoluteY="345dp"
+            tools:layout_editor_absoluteX="239dp" />
+
+        <Button
+            android:id="@+id/buttonTAN"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignRight="@id/buttonEqual"
+            android:layout_below="@id/buttonEqual"
+            android:text="tan"
+            android:textSize="20sp"
+            tools:layout_editor_absoluteY="345dp"
+            tools:layout_editor_absoluteX="239dp" />
+
+
     </RelativeLayout>
 </layout>
